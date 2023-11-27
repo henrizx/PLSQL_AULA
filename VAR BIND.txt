@@ -1,0 +1,18 @@
+uma variavel tipo bind é uma variavel que vc declara em um ambiente externo ao bloco, 
+e então utiliza para passar valores em tempo de execução, para um ou mais valores em tempo 
+de execução, para um ou mais blocos PL/SQL que podem utiliza-la como qualquer outra variavel
+
+você pode referenciar variaveis BIND declaradas em um ambiente exerterno ao bloco
+dentro do bloco PL/SQL
+
+
+no ambiente do oracle SQL PLUS OU DEVELOPER, para declarar uma variavel BIND, voce utiliza
+o comando VARIABLE
+
+EXEMPLO
+
+
+VARIABLE gnumero NUMBER
+
+para referenciar variaveis BIND, voce deve prefixar a referencia com o caractere (:) para
+distinguir de variaveis declaradas no bloco PL/SQL

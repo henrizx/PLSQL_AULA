@@ -1,0 +1,11 @@
+identificando blocos atraves de labels
+
+<<label>>
+DECLARE
+
+BEGIN
+
+EXCEPTION
+
+END;
+

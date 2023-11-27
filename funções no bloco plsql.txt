@@ -1,0 +1,22 @@
+PODEMOS utilizar os seguintes tipos de funções SQL em expressões PL/SQL
+
+
+funções numericas 
+
+funções caractere
+
+funções de conversão de tipo de dados
+
+funções de data
+
+funções genericas
+
+outras funções definidas pelo usuario
+
+----------------------------------------------------------
+não podemos utilizar os seguintes tipos de funções em expressão pl/sql
+
+decode
+função de grupo (AVG/MIN/MAX/COUNT/SUM/STDDEV/VARIANCE)
+
+

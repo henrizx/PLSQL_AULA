@@ -1,0 +1,221 @@
+NUMBER
+o tipo number suporta numeros
+
+são definidos especificando NUMBER(p,s)
+
+p = numero maximo de digitos (precisão)
+
+s = numero de decimais (escala)
+
+
+exemplo
+
+DECLARE
+
+vvalor1 NUMBER(11,2) :=14.5;
+vvalor2 NUMBER(11) :=24;
+
+
+-------------------------------------------
+CHAR
+
+o tipo de dado CHAR é um tipo de dado base para strings de tamanho fixo
+
+o tamanho maximo para um tipo de dado CHAR no PL/SQL é 32767 bytes
+
+o tamanho default é 1 byte
+
+obs o tamanho maximo de um dado CHAR no SQL é 2000 bytes
+
+exemplo
+
+DECLARE
+vestado CHAR(2) NOT NULL :='RS';
+
+
+--------------------------------------------------
+VARCHAR2
+
+o tipo de dado VARCHAR2 é o tipo de dado base para string de tamanho variavel
+
+o tamanho maximo de um varchar2 é de 32767 bytes
+
+obs o tamanho maximo de uma coluna varchar2 no sql é de 4000 bytes
+
+exemplo
+
+DECLARE
+vcidade VARCHAR2(40) NOT NULL := 'PORTO ALEGRE';
+
+------------------------------------------------------
+
+
+BOOLEAN
+
+
+o tipo de dado BOOLEAN possui três valores possiveis: TRUE, FALSE e NULL
+
+exemplo
+
+DECLARE
+vvar BOOLEAN NOT NULL := TRUE;
+------------------------------------------------------------------------
+
+LONG E LONG RAW 
+
+o tipo de dado LONG armazena um string de caracteres. O tipo de dado LONG RAW armazena
+binarios 
+
+o tipo de dado LONG possui um tamanho maximo de até 32760 bytes no PL/SQL
+
+o tipo de LONG RAW possui um tamnho maximo de até 32760 bytes no PL/SQL
+
+obs o tamanho maximo de um tipo de dado LONG no SQL é 2G - 1
+
+o tamnho maximo de um tipo LONG RAW no SQL é 2G
+
+exemplo 
+
+DECLARE 
+vtexto LONG :='CAR';
+vvar LONG RAW := HEXTORAW('43'||'41'||'52');
+
+--------------------------------------
+ROWID
+
+o tipo ROWID mapeia a pseudocoluna
+ROWID , que é o endereço logico de uma linha de uma tabela
+
+o tipo ROWID é um string de 18 caracteres
+
+
+exemplo
+
+DECLARE
+vrowid ROWID;
+
+-----------------------------------------------------------------------------
+DATE
+
+o tipo de dado DATE é o tipo de dado base para datas. O intervalo valido é a partir 
+de 1 de janeiro de 4712 AC até 31 de dezembro de 9999 DC
+
+
+exemplo
+
+DECLARE
+
+vdata1 DATE := SYSDATE;
+vdata2 DATE := '28/01/20';
+
+---------------------------------------------------------------------
+TIMESTAMP
+
+
+o subtipo TIMESTAMP extende o tipo do DATE base oferecendo um tempo com tamanho 
+maximo de 9 digitos de segundos apos o decimal
+
+exemplo
+
+DECLARE
+vdata1 TIMESTAMP := SYSTIMESTAMP;
+vdata2 TIMESTAMP(3) := SYSTIMESTAMP;
+
+
+
+
+
+----------------------------------------------------------------------------------
+TIMESTAMP WITH TIME ZONE
+
+
+o subtipo TIMESTAMP extende o tipo dado DATE base oferendo um tempo com tamnho
+maximo de 9 digitos de segundos apos o decimal incluindo UTC
+
+exemplo
+
+DECLARE
+vdata1 TIMESTAMP WITH TIME ZONE := SYSTIMESTAMP;
+
+exemplo TIMESTAMP WITH LOCAL TIME ZONE
+
+DECLARE
+vdata2 TIMESTAMP WITH LOCAL TIME ZONE := SYSTIMESTAMP;
+
+----------------------------------------------------------------------------
+NCHAR E NVARCHAR2
+
+
+o caracteres e string Unicode existem  para suportar globalização utilizando conjuntos
+de caracteres (character sets) universais AL16UTF16 ou UTF8 são conjuntos de caracteres
+universais fornecidos pelo banco de dados ORACLE
+
+AL16UTF16 armazena todos os caracteres em 2bytes fisicos
+
+UTF8 armazena todos os caracteres em 3 bytes fisicos
+
+o tipo de dado NCHAR é um Unicode equivalente ao tipo de dado CHAR
+
+o tipo de dado NVARCHAR2 ée um unicode equivalente ao tipo VARCHAR2
+
+exemplo 
+
+DECLARE
+vestado NCHAR(2) :='RS';
+vnome NNVARCHAR(20) :='Utilizando conjunto de caracteres Universal';
+
+---------------------------------------------------------------------------------
+BINARY_INTEGER
+
+o tipo de dado BINARY_INTEGER É numerico sem decimais
+
+armazena numero inteiros na faixa entre: 2.147.438.648 até 2.147.483.647 como
+32 bites ou 4 bytes
+
+Calculos mais eficientes com numeros inteiros que um tipo de dado NUMBER porque consome
+menos espaço em memoria
+
+
+DECLARE
+vvar1 BINARY_INTEGER := 14;
+vvar2 BINARY_INTEGER :=24;
+
+BINARY_FLOAT - precisão simples (32bits)
+BINARY_DOUBLE - precisão dupla (64 bits)
+
+
+exemplo
+
+DECLARE
+
+vvar3 BINARY_FLOAT :=12;
+vvar4 BINARY_FLOAT :=24;
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------
+
+atribuindo valores para as variaveis
+
+
+SET SERVEROUTPUT ON
+DECLARE
+  vdatabase VARCHAR2(40);
+BEGIN
+  vdatabase :='Oracle 19c';
+  DBMS_OUTPUT.PUT_LINE('Valor da varivel vdatabase =' || vdatabase);
+END;
+
+
+--------------------------------------------------
+declarando variaveis utilizando %TYPE
+
+EXEMPLO 
+
+DECLARE
+ vfirst_name employees.first_name%TYPE;	
+ vlast_name employees.last_name%TYPE;	

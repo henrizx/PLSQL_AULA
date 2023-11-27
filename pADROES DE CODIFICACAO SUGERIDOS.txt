@@ -1,0 +1,59 @@
+Convenções de codificação
+
+
+Categoria				|		convenção sugerida
+					
+comando SQL				|		LETRAS MAIUSCULAS
+					
+Palavra chave				|		LETRAS MAIUSCULAS
+
+tipo de dados				|		LETRAS MAIUSCULAS
+
+nomes de identificadores e parametros	|		letras minusculas
+
+nomes de tabelas e colunas		|		letras minusculas
+
+Variavel				|		prefixo V
+
+constantes				|		prefixo C
+
+cursor					|		sufixo_cursor
+
+exceção					|		prefixo e
+
+tipo record				|		sufixo_record_type
+
+variavel record				|		sufixo_record
+
+paramentro				|		prefixo p
+
+variavel global				|		prefixo g
+--------------------------================================-------------------------
+
+
+--
+-- SeÃ§Ã£o 7 - Sintaxe e Diretrizes de um Bloco PL/SQL
+--
+-- Aula 4 - PadrÃµes de codificaÃ§Ã£o sugeridos
+--
+
+-- Exemplo de uso dos PadrÃµes de codificaÃ§Ã£o sugeridos
+
+SET SERVEROUTPUT ON
+DECLARE
+  vBloco1 VARCHAR2(20) := 'Bloco 1';
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Referenciando variÃ¡vel do Bloco 1: ' || vBloco1);
+  -- Se voce referencia vbloco2 aqui ocorrerÃ¡ Erro
+  DECLARE
+    vBloco2 VARCHAR2(20) := 'Bloco 2';
+  BEGIN
+    DBMS_OUTPUT.PUT_LINE('Referenciando variÃ¡vel do Bloco 1: ' || vBloco1);
+    DBMS_OUTPUT.PUT_LINE('Referenciando variÃ¡vel do Bloco 2: ' || vBloco2);
+  END;
+  DBMS_OUTPUT.PUT_LINE('Referenciando variÃ¡vel do Bloco 1: ' || vBloco1);
+  -- Se voce referencia vbloco2 aqui ocorrerÃ¡ Erro
+END;
+
+
+
